@@ -1,0 +1,153 @@
+/* ── Overlay ──────────────────────────────────────────── */
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.78);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: overlayIn 0.25s ease;
+}
+
+@keyframes overlayIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* ── Card ─────────────────────────────────────────────── */
+.popup-card {
+    background: linear-gradient(160deg, #1e0042 0%, #0d001a 100%);
+    border: 2px solid #ffd700;
+    border-radius: 28px;
+    padding: 40px 56px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    box-shadow:
+        0 0 60px rgba(255, 215, 0, 0.6),
+        0 0 140px rgba(255, 165, 0, 0.25);
+    animation: cardPop 0.35s cubic-bezier(0.36, 2, 0.6, 1);
+    min-width: 360px;
+}
+
+@keyframes cardPop {
+    from {
+        transform: scale(0.5) translateY(40px);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ── Stars ─────────────────────────────────────────────── */
+.popup-stars {
+    font-size: 1.8rem;
+    color: #ffd700;
+    text-shadow: 0 0 12px #ffd700, 0 0 28px #ffa500;
+    letter-spacing: 0.4em;
+    animation: starsPulse 0.6s ease-in-out infinite alternate;
+}
+
+@keyframes starsPulse {
+    from {
+        text-shadow: 0 0 10px #ffd700, 0 0 24px #ffa500;
+    }
+
+    to {
+        text-shadow: 0 0 22px #ffd700, 0 0 50px #ff8c00;
+    }
+}
+
+/* ── Title ─────────────────────────────────────────────── */
+.popup-title {
+    font-family: 'Orbitron', monospace;
+    font-weight: 900;
+    font-size: 2.6rem;
+    letter-spacing: 0.18em;
+    color: #ffd700;
+    text-shadow:
+        0 0 14px #ffd700,
+        0 0 36px #ffa500,
+        0 0 70px #ff6600;
+    margin: 0;
+}
+
+/* ── Image ─────────────────────────────────────────────── */
+.popup-img-wrap {
+    width: 240px;
+    height: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #d3d2d5;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    animation: imgFloat 2s ease-in-out infinite alternate;
+}
+
+@keyframes imgFloat {
+    from {
+        transform: translateY(0px);
+    }
+
+    to {
+        transform: translateY(-10px);
+    }
+}
+
+.popup-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.4));
+}
+
+/* ── Label ─────────────────────────────────────────────── */
+.popup-label {
+    font-family: 'Orbitron', monospace;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+    margin: 0;
+}
+
+/* ── Progress bar (3s countdown) ──────────────────────── */
+.popup-progress {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 4px;
+}
+
+.popup-progress-bar {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, #ffd700, #ff8c00);
+    border-radius: 4px;
+    animation: drainBar 3s linear forwards;
+}
+
+@keyframes drainBar {
+    from {
+        width: 100%;
+    }
+
+    to {
+        width: 0%;
+    }
+}
